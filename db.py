@@ -17,8 +17,8 @@ def init_db():
         username TEXT UNIQUE,
         password TEXT,
         role TEXT DEFAULT 'user'
-        """
-        
+        )
+        """  
     )
     
     conn.commit()
@@ -47,8 +47,8 @@ def create_user(username,password,role):
     
 def get_user_by_username(username):
     try:
-        with sqlite3.connect(DB_name,timeout=5) as conn:
-            cursor = conn.cursoer()
+        with sqlite3.connect(DB_NAME,timeout=5) as conn:
+            cursor = conn.cursor()
             cursor.execute("""
                            SELECT * from users where username=?
                            """,(username,))
